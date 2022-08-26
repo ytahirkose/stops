@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Routes from './routes/Routes';
+import './App.scss';
+import { ErrorBoundary } from "./components";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ErrorBoundary>
+      <ToastContainer
+        limit={2}
+        autoClose={2000}
+        hideProgressBar
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        containerId="vf-toast-container"
+        position="top-center"
+        //bodyClassName={() => "toast-container"}
+        //toastClassName="dark-toast"
+        //closeButton={CloseButton}
+      />
+      {Routes}
+    </ErrorBoundary>
   );
 }
 

@@ -3,12 +3,13 @@ import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
 import './DefaultLayout.scss';
 import { IconMap } from "../../utils/Icons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeUser } from "../../store/auth";
 
 const DefaultLayout = () => {
   const scroller = useRef();
   const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.auth);
   const [inDeep, setInDeep] = useState(false)
 
   const setUpButtonVisibility = () => {
@@ -34,10 +35,11 @@ const DefaultLayout = () => {
                 <li className="nav-item">
                   <Link className="nav-link ms-1 active" to="/home">Home Page</Link>
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link ms-1" to="/login" onClick={() => dispatch(removeUser())}>Login Page</Link>
-                </li>
               </ul>
+              {user ? <div className={'text-light text-capitalize me-5 welcome-text fw-bold'}>
+                Welcome {user.name}
+              </div>: null}
+
               <Link to="/login" className="btn btn-danger"
                     onClick={() => dispatch(removeUser())}>Logout</Link>
             </div>

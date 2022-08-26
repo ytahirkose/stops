@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import './login.scss'
-import { IconLogo } from "../../utils/Icons";
+import { IconLogoDark } from "../../utils/Icons";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "../../components";
 import { useNavigate } from "react-router";
-import { toast } from "react-toastify";
 import { setUser } from "../../store/auth";
 import { checkValidationEmail } from "../../utils/Validation";
 
@@ -27,11 +26,11 @@ const Login = () => {
     const errors = {};
 
     if (!values.email) {
-      toast.errors.email = 'required';
+      errors.email = 'required';
     } else if (values.email.length > 25) {
-      toast.errors.email = 'must be 25 characters or less';
+      errors.email = 'must be 25 characters or less';
     } else if (!checkValidationEmail(values.email)) {
-      toast.errors.email = 'must be valid';
+      errors.email = 'must be valid';
     }
 
     if (!values.password) {
@@ -59,10 +58,10 @@ const Login = () => {
   }
 
   return (
-    <div className="form-signin w-100 m-auto">
-      <form className="text-center login-form" onSubmit={formik.handleSubmit} ref={operationForm}>
-        <IconLogo className="mb-5 align-self-center" style={{transform: 'scale(2)'}}/>
-        <h1 className="h2 mb-3 fw-normal text-primary">Sign in</h1>
+    <div className="form-signin w-100 pb-5">
+      <form className="text-center login-form bg-light mb-5 shadow" onSubmit={formik.handleSubmit} ref={operationForm}>
+        <IconLogoDark className="my-5 align-self-center text-primary login-icon"/>
+        <h1 className="h2 mb-3 fw-normal text-primary">Please Sign in</h1>
 
         <div className="form-floating">
           <input name="email"

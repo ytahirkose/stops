@@ -1,5 +1,5 @@
 // Variable overrides first
-$primary: #345;
+$primary: #567;
 $enable-shadows: true;
 $prefix: "mo-";
 
@@ -7,5 +7,5 @@ $prefix: "mo-";
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 body {
-  background-color: #def;
+  background-color: #ddd;
 }

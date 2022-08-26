@@ -1,4 +1,5 @@
 import { ReactComponent as IconLogo } from '../assets/geo-alt.svg';
+import { ReactComponent as IconLogoDark } from '../assets/geo-alt-dark.svg';
 import { ReactComponent as IconMap } from '../assets/map.svg';
 
 /*import pathNoImage from '../assets/no-image.png';
@@ -7,5 +8,6 @@ import MapBg from '../assets/map-bg.png';*/
 
 export {
   IconLogo,
-  IconMap
+  IconMap,
+  IconLogoDark
 };

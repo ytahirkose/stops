@@ -422,7 +422,8 @@ const slice = createSlice({
   name: 'map',
   initialState: {
     isLocationPending: null,
-    stops: []
+    stops: [],
+    center: {lng:29.94300329, lat: 40.76508891}
   },
   reducers: {
     getStops: (state, action) => {

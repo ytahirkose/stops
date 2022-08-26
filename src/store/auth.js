@@ -5,7 +5,6 @@ import {
 import API from '../network/apis/APIs';
 import { requestPayload } from '../utils/Constants';
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router";
 import Cookies from "js-cookie";
 
 const users = [
@@ -56,7 +55,7 @@ const slice = createSlice({
   name: 'auth',
   initialState: {
     isPending: false,
-    user: {},
+    user: null,
     inviteUser: false,
   },
   reducers: {
@@ -64,7 +63,7 @@ const slice = createSlice({
       let isValidUser = false
       users.forEach(user => {
         if (user.email == action.payload.email && user.password == action.payload.password) {
-          Cookies.set( 'activeUser', user );
+          Cookies.set( 'activeUser', JSON.stringify(user) );
           isValidUser = true
           state.inviteUser = true;
           toast.success('Login Successful');
@@ -78,7 +77,7 @@ const slice = createSlice({
       }
     },
     removeUser: (state, action) => {
-      state.user = {};
+      state.user = null;
       state.inviteUser = false;
       Cookies.remove('activeUser')}
   },

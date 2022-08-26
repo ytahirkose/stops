@@ -31,17 +31,10 @@ const users = [
     password: "12416754",
     email: "enes@poyraz.com.tr",
     status: true
-  },
-  {
-    id: 4,
-    name: "tahir",
-    surname: "köse",
-    password: "123456",
-    email: "tahir@kose.com.tr",
-    status: true
   }
 ]
 
+//On real projects this async operation should use, for this case project work reducers.
 export const createSession = createAsyncThunk('createSession', async (arg) => {
   try {
     const response = await API.createSession({...arg, ...requestPayload});
@@ -63,7 +56,7 @@ const slice = createSlice({
       let isValidUser = false
       users.forEach(user => {
         if (user.email == action.payload.email && user.password == action.payload.password) {
-          Cookies.set( 'activeUser', JSON.stringify(user) );
+          Cookies.set('activeUser', JSON.stringify(user));
           isValidUser = true
           state.inviteUser = true;
           toast.success('Login Successful');
@@ -79,7 +72,8 @@ const slice = createSlice({
     removeUser: (state, action) => {
       state.user = null;
       state.inviteUser = false;
-      Cookies.remove('activeUser')}
+      Cookies.remove('activeUser')
+    }
   },
   extraReducers: {
 

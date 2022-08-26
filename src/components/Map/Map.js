@@ -39,6 +39,7 @@ const Map = ({stops, center}) => {
           shouldFocus: false,
         });
       });
+
     })
   }
 

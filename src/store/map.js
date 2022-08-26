@@ -408,6 +408,7 @@ const stops = [
   }
 ]
 
+//On real projects this async operation should use, for this case project work reducers.
 export const getLocations = createAsyncThunk('getLocations', async (arg) => {
   try {
     const response = await API.getLocations({...arg, ...requestPayload});
@@ -423,7 +424,7 @@ const slice = createSlice({
   initialState: {
     isLocationPending: null,
     stops: [],
-    center: {lng:29.94300329, lat: 40.76508891}
+    center: {lng: 29.94300329, lat: 40.76508891}
   },
   reducers: {
     getStops: (state, action) => {

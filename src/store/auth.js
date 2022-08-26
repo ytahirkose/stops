@@ -31,14 +31,6 @@ const users = [
     password: "12416754",
     email: "enes@poyraz.com.tr",
     status: true
-  },
-  {
-    id: 4,
-    name: "tahir",
-    surname: "köse",
-    password: "123456",
-    email: "tahir@kose.com.tr",
-    status: true
   }
 ]
 

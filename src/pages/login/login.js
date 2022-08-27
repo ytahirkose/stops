@@ -27,8 +27,8 @@ const Login = () => {
 
     if (!values.email) {
       errors.email = 'required';
-    } else if (values.email.length > 25) {
-      errors.email = 'must be 25 characters or less';
+    } else if (values.email.length > 35) {
+      errors.email = 'must be 35 characters or less';
     } else if (!checkValidationEmail(values.email)) {
       errors.email = 'must be valid';
     }

@@ -6,33 +6,7 @@ import API from '../network/apis/APIs';
 import { requestPayload } from '../utils/Constants';
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
-
-const users = [
-  {
-    id: 1,
-    name: "orhan",
-    surname: "aydoğdu",
-    password: "12341214",
-    email: "orhan@aydogdu.com.tr",
-    status: true
-  },
-  {
-    id: 2,
-    name: "enes",
-    surname: "kahraman",
-    password: "98776241",
-    email: "enes@kahraman.com.tr",
-    status: false
-  },
-  {
-    id: 3,
-    name: "enes",
-    surname: "poyraz",
-    password: "12416754",
-    email: "enes@poyraz.com.tr",
-    status: true
-  }
-]
+import users from "../assets/users.json"
 
 //On real projects this async operation should use, for this case project work reducers.
 export const createSession = createAsyncThunk('createSession', async (arg) => {
@@ -59,12 +33,14 @@ const slice = createSlice({
           Cookies.set('activeUser', JSON.stringify(user));
           isValidUser = true
           state.inviteUser = true;
+          toast.dismiss();
           toast.success('Login Successful');
           state.user = user;
           return;
         }
       })
       if (!isValidUser) {
+        toast.dismiss();
         toast.error('Check Your Email or Password');
         state.inviteUser = false;
       }

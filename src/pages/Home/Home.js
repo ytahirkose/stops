@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <div>
-      {window.google ?
+      {window.google && stops ?
         <Map stops={stops} center={center}/>
         : null}
     </div>

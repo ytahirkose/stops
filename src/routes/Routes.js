@@ -1,15 +1,15 @@
-import React, {Suspense} from 'react';
-import {Route, BrowserRouter as Router} from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import {
   NotFound,
   Home,
   Login,
 } from '../pages';
-import {Routes} from 'react-router';
-import {DefaultLayout} from '../containers';
+import { Routes } from 'react-router';
+import { DefaultLayout } from '../containers';
 import history from './History';
 import config from '../config/index';
-import {Loader} from '../components';
+import { Loader } from '../components';
 
 const RouteList = (
   <Router history={history} basename={config.BASE_NAME}>

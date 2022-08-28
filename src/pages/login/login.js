@@ -11,15 +11,15 @@ import { checkValidationEmail } from "../../utils/Validation";
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { isPending, inviteUser } = useSelector((state) => state.auth);
+  const {isPending, inviteUser} = useSelector((state) => state.auth);
 
   const operationForm = useRef()
 
-  useEffect(()=> {
+  useEffect(() => {
     if (inviteUser) {
       navigate('/home')
     }
-  },[inviteUser])
+  }, [inviteUser])
 
 
   const validate = values => {

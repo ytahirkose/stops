@@ -18,9 +18,6 @@ function App() {
         pauseOnHover
         containerId="vf-toast-container"
         position="top-center"
-        //bodyClassName={() => "toast-container"}
-        //toastClassName="dark-toast"
-        //closeButton={CloseButton}
       />
       {Routes}
     </ErrorBoundary>

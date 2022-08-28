@@ -1,12 +1,11 @@
 import Cookie from "js-cookie";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
 export const isHandlerEnabled = (config = {}) => (!(config.hasOwnProperty('handlerEnabled') && !config.handlerEnabled));
 
 export const requestHandler = (request) => {
   if (isHandlerEnabled(request)) {
-    request.headers = {
-    }
+    request.headers = {}
     // Modify request here
     // store.dispatch(setLoader(true));
   }

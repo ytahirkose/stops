@@ -9,15 +9,15 @@ import { getStops } from "../../store/map";
 const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {stops, center} = useSelector( ( state ) => state.map );
-  const {user} = useSelector( ( state ) => state.auth );
+  const {stops, center} = useSelector((state) => state.map);
+  const {user} = useSelector((state) => state.auth);
 
-  useEffect( () => {
+  useEffect(() => {
     if (!user) {
-      navigate( '/login' )
+      navigate('/login')
     }
-    dispatch( getStops() )
-  }, [] )
+    dispatch(getStops())
+  }, [])
 
   return (
     <div>

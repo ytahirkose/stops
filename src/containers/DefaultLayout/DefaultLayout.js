@@ -9,7 +9,7 @@ import { removeUser } from "../../store/auth";
 const DefaultLayout = () => {
   const scroller = useRef();
   const dispatch = useDispatch()
-  const { user } = useSelector((state) => state.auth);
+  const {user} = useSelector((state) => state.auth);
   const [inDeep, setInDeep] = useState(false)
 
   const setUpButtonVisibility = () => {
@@ -38,7 +38,7 @@ const DefaultLayout = () => {
               </ul>
               {user ? <div className={'text-light text-capitalize me-5 welcome-text fw-bold'}>
                 Welcome {user.name}
-              </div>: null}
+              </div> : null}
 
               <Link to="/login" className="btn btn-danger"
                     onClick={() => dispatch(removeUser())}>Logout</Link>
